@@ -1,0 +1,1 @@
+dubboExceptionFilter=org.whalefall.stack.framework.infrastructure.exception.filter.DubboExceptionFilter

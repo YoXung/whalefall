@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  org.whalefall.stack.framework.infrastructure.exception.handler.GlobalExceptionHandler,\
+  org.whalefall.stack.framework.infrastructure.i18n.GlobalMessageSource,\
+  org.whalefall.stack.framework.infrastructure.exception.config.DubboConfiguration
