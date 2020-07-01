@@ -18,7 +18,7 @@ import org.whalefall.stack.framework.ui.vo.R;
  * @create 2020/6/28 3:09 下午
  */
 @RestController
-@RequestMapping("/dubbo")
+@RequestMapping("/consumer/dubbo")
 @Validated
 public class ConsumerController {
     @Autowired
