@@ -73,4 +73,11 @@
         </plugins>
     </build>
 
+    <developers>
+        <developer>
+            <name>YoXung</name>
+            <url>https://github.com/YoXung/whalefall.git</url>
+        </developer>
+    </developers>
+
 </project>
