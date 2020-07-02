@@ -2,13 +2,14 @@ package org.whalefall.stack.dubbo.consumer.ui;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.whalefall.stack.dubbo.api.provider.query.dto.DemoDTO;
 import org.whalefall.stack.dubbo.consumer.applicaiton.api.ConsumerApplicationService;
+import org.whalefall.stack.dubbo.consumer.infrastructure.exception.ConsumerDubboException;
 import org.whalefall.stack.dubbo.consumer.ui.vo.ConsumerVO;
 import org.whalefall.stack.framework.ui.vo.R;
+
+import javax.validation.constraints.NotBlank;
 
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
@@ -28,4 +29,16 @@ public class ConsumerController {
     public R<Integer> createDemo(@RequestBody @Validated ConsumerVO consumerVO) {
         return new R<>(Integer.valueOf(consumerApplicationService.createDemo(consumerVO)));
     }
+
+    @GetMapping({"/demos/{name}","/demos"})
+    public R<DemoDTO> queryByName(@PathVariable(value = "name", required = false) @NotBlank(message = "GET参数不可以为空") String name) {
+        checkParam(name);
+        return new R<>(consumerApplicationService.queryByName(name));
+    }
+
+    private void checkParam(String param) {
+        if (param.equals("abc"))
+        ConsumerDubboException.CONSUMER_DUBBO_EXCEPTION_TEST.assertFail();
+    }
+
 }

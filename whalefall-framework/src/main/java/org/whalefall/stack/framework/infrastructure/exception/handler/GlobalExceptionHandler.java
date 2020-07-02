@@ -155,7 +155,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = BindException.class)
     public ER handleBindException(BindException e) {
-        log.error("参数绑定校验异常", e);
+        log.error("BindException", e);
         return wrapperBindingResult(e.getBindingResult());
     }
 
@@ -167,7 +167,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
     public ER handleValidException(MethodArgumentNotValidException e) {
-        log.error("参数绑定校验异常", e);
+        log.error("MethodArgumentNotValidException", e);
         return wrapperBindingResult(e.getBindingResult());
     }
 
@@ -180,15 +180,19 @@ public class GlobalExceptionHandler {
     private ER wrapperBindingResult(BindingResult bindingResult) {
         StringBuilder msg = new StringBuilder();
         System.out.println("++++++++++这里进来了");
-        for (ObjectError error : bindingResult.getAllErrors()) {
-            msg.append(", ");
-            if (error instanceof FieldError) {
-                msg.append(((FieldError) error).getField()).append(": ");
-            }
-            msg.append(error.getDefaultMessage() == null ? "" : error.getDefaultMessage());
-        }
+        if (bindingResult.getErrorCount()>0)
+            msg.append(bindingResult.getAllErrors().get(0).getDefaultMessage());
+//        for (ObjectError error : bindingResult.getAllErrors()) {
+//            msg.append(", ");
+////            if (error instanceof FieldError) {
+////                msg.append(((FieldError) error).getField()).append(": ");
+////            }
+//            System.out.println("-------------"+error.getDefaultMessage());
+//            msg.append(error.getDefaultMessage() == null ? "" : error.getDefaultMessage());
+//            System.out.println("-----++++--------"+msg);
+//        }
 
-        return new ER(ArgumentResponseEnum.VALID_ERROR.getCode(), msg.substring(2));
+        return new ER(ArgumentResponseEnum.VALID_ERROR.getCode(), msg.toString());
     }
 
     /**
