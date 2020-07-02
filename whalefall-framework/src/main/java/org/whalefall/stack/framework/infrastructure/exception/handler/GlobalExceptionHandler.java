@@ -1,6 +1,7 @@
 package org.whalefall.stack.framework.infrastructure.exception.handler;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.ConversionNotSupportedException;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -213,6 +214,6 @@ public class GlobalExceptionHandler {
             return new ER(code, message);
         }
 
-        return new ER(CommonResponseEnum.SERVER_ERROR.getCode(), e.getMessage());
+        return new ER(CommonResponseEnum.SERVER_ERROR.getCode(), StringUtils.substringAfter(e.getMessage(), ":"));
     }
 }
