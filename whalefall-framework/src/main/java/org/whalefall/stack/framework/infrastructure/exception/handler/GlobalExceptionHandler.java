@@ -181,16 +181,14 @@ public class GlobalExceptionHandler {
     private ER wrapperBindingResult(BindingResult bindingResult) {
         StringBuilder msg = new StringBuilder();
         System.out.println("++++++++++这里进来了");
-        if (bindingResult.getErrorCount()>0)
-            msg.append(bindingResult.getAllErrors().get(0).getDefaultMessage());
+
+        msg.append(bindingResult.getFieldErrors().size() > 0 ? "" : bindingResult.getAllErrors().get(0).getDefaultMessage());
 //        for (ObjectError error : bindingResult.getAllErrors()) {
 //            msg.append(", ");
 ////            if (error instanceof FieldError) {
 ////                msg.append(((FieldError) error).getField()).append(": ");
 ////            }
-//            System.out.println("-------------"+error.getDefaultMessage());
 //            msg.append(error.getDefaultMessage() == null ? "" : error.getDefaultMessage());
-//            System.out.println("-----++++--------"+msg);
 //        }
 
         return new ER(ArgumentResponseEnum.VALID_ERROR.getCode(), msg.toString());
