@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.whalefall.stack.dubbo.api.provider.command.cmd.DemoCmd;
 import org.whalefall.stack.dubbo.api.provider.command.facade.DemoCommandService;
+import org.whalefall.stack.dubbo.api.provider.query.dto.DemoDTO;
+import org.whalefall.stack.dubbo.api.provider.query.facade.DemoQueryService;
+import org.whalefall.stack.dubbo.api.provider.query.qry.DemoQry;
 import org.whalefall.stack.dubbo.consumer.applicaiton.api.ConsumerApplicationService;
 import org.whalefall.stack.dubbo.consumer.infrastructure.assembler.DemoCmdAssembler;
 import org.whalefall.stack.dubbo.consumer.ui.vo.ConsumerVO;
@@ -22,10 +25,19 @@ public class ConsumerApplicationServiceImpl implements ConsumerApplicationServic
     private DemoCmdAssembler demoCmdAssembler;
     @Reference
     private DemoCommandService demoCommandService;
+    @Reference
+    private DemoQueryService demoQueryService;
 
     @Override
     public int createDemo(ConsumerVO consumerVO) {
         DemoCmd demoCmd = demoCmdAssembler.apply(consumerVO);
         return demoCommandService.createDemo(demoCmd);
+    }
+
+    @Override
+    public DemoDTO queryByName(String name) {
+        DemoQry demoQry = new DemoQry();
+        demoQry.setName(name);
+        return demoQueryService.queryDemo(demoQry);
     }
 }

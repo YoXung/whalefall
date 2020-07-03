@@ -3,6 +3,7 @@ package org.whalefall.stack.dubbo.consumer.ui.vo;
 import lombok.Data;
 import org.whalefall.stack.framework.annotations.ddd.ui.ViewObject;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 /**
@@ -15,7 +16,8 @@ import javax.validation.constraints.NotBlank;
 @ViewObject
 @Data
 public class ConsumerVO {
-    private int id;
+    @Min(666L)
+    private long id;
     @NotBlank(message = "名称不可为空")
     private String name;
 }

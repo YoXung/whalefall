@@ -1,5 +1,6 @@
 package org.whalefall.stack.dubbo.consumer.applicaiton.api;
 
+import org.whalefall.stack.dubbo.api.provider.query.dto.DemoDTO;
 import org.whalefall.stack.dubbo.consumer.ui.vo.ConsumerVO;
 
 /**
@@ -11,4 +12,5 @@ import org.whalefall.stack.dubbo.consumer.ui.vo.ConsumerVO;
  */
 public interface ConsumerApplicationService {
     int createDemo(ConsumerVO consumerVO);
+    DemoDTO queryByName(String name);
 }
