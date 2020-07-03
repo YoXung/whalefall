@@ -19,7 +19,7 @@ public class BaseException extends RuntimeException implements Serializable {
     // 返回码
     protected BaseResponseEnum baseResponseEnum;
     // 异常消息参数
-    protected Object[] args;
+    protected transient Object[] args;
 
     public BaseException(BaseResponseEnum baseResponseEnum) {
         super(baseResponseEnum.getMessage());
