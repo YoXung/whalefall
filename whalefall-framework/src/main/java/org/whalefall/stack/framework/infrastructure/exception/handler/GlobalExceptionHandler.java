@@ -13,8 +13,6 @@ import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.HttpMediaTypeNotAcceptableException;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -49,7 +47,7 @@ import org.whalefall.stack.framework.ui.vo.ER;
 @Slf4j
 public class GlobalExceptionHandler {
     // 生产环境
-    private final static String ENV_PROD = "prod";
+    private static final String ENV_PROD = "prod";
 
     @Autowired
     private GlobalMessageSource globalMessageSource;
