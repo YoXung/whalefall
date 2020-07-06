@@ -29,6 +29,6 @@ class ConsumerControllerTest {
         this.mockMvc.perform(MockMvcRequestBuilders.get("/consumer/dubbo/demos/"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().string("Hello, spring"));
+                .andExpect(MockMvcResultMatchers.content().string("Hello, dubbo consumer"));
     }
 }

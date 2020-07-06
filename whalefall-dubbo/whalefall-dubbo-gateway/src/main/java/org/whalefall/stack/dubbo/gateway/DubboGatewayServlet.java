@@ -21,6 +21,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,7 +44,9 @@ public class DubboGatewayServlet extends HttpServletBean {
     private final PathMatcher pathMatcher = new AntPathMatcher();
     private final Map<String, Object> dubboTranslatedAttributes = new HashMap<>();
 
-    public DubboGatewayServlet(DubboServiceMetadataRepository dubboServiceMetadataRepository, DubboGenericServiceFactory dubboGenericServiceFactory, DubboGenericServiceExecutionContextFactory dubboGenericServiceExecutionContextFactory) {
+    public DubboGatewayServlet(DubboServiceMetadataRepository dubboServiceMetadataRepository,
+                               DubboGenericServiceFactory dubboGenericServiceFactory,
+                               DubboGenericServiceExecutionContextFactory dubboGenericServiceExecutionContextFactory) {
         this.dubboServiceMetadataRepository = dubboServiceMetadataRepository;
         this.dubboGenericServiceFactory = dubboGenericServiceFactory;
         this.dubboGenericServiceExecutionContextFactory = dubboGenericServiceExecutionContextFactory;
@@ -52,15 +55,15 @@ public class DubboGatewayServlet extends HttpServletBean {
     }
 
     @Override
-    public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-        String serviceName = resolveServiceName((HttpServletRequest) req);
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String serviceName = resolveServiceName(req);
         //String restPath = substringAfter(((HttpServletRequest) req).getRequestURI(), serviceName);
-        String restPath = resolveRestPath((HttpServletRequest) req);
+        String restPath = resolveRestPath(req);
 
         // 初始化 serviceName 的 REST 请求元数据
         dubboServiceMetadataRepository.initializeMetadata(serviceName);
         // 将 HttpServletRequest 转化为 RequestMetadata
-        RequestMetadata requestMetadata = buildRequestMetadata((HttpServletRequest) req, restPath);
+        RequestMetadata requestMetadata = buildRequestMetadata(req, restPath);
 
         DubboRestServiceMetadata dubboRestServiceMetadata = dubboServiceMetadataRepository.get(serviceName,
                 requestMetadata);
