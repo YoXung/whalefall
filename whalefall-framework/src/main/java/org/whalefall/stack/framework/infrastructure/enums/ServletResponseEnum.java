@@ -15,23 +15,23 @@ import javax.servlet.http.HttpServletResponse;
 @Getter
 @AllArgsConstructor
 public enum ServletResponseEnum {
-    MethodArgumentNotValidException(1400, "", HttpServletResponse.SC_BAD_REQUEST),
-    MethodArgumentTypeMismatchException(1400, "", HttpServletResponse.SC_BAD_REQUEST),
-    MissingServletRequestPartException(1400, "", HttpServletResponse.SC_BAD_REQUEST),
-    MissingPathVariableException(1400, "", HttpServletResponse.SC_BAD_REQUEST),
-    BindException(1400, "", HttpServletResponse.SC_BAD_REQUEST),
-    MissingServletRequestParameterException(1400, "", HttpServletResponse.SC_BAD_REQUEST),
-    TypeMismatchException(1400, "", HttpServletResponse.SC_BAD_REQUEST),
-    ServletRequestBindingException(1400, "", HttpServletResponse.SC_BAD_REQUEST),
+    MethodArgumentNotValidException(400, "", HttpServletResponse.SC_BAD_REQUEST),
+    MethodArgumentTypeMismatchException(400, "", HttpServletResponse.SC_BAD_REQUEST),
+    MissingServletRequestPartException(400, "", HttpServletResponse.SC_BAD_REQUEST),
+    MissingPathVariableException(400, "", HttpServletResponse.SC_BAD_REQUEST),
+    BindException(400, "", HttpServletResponse.SC_BAD_REQUEST),
+    MissingServletRequestParameterException(400, "", HttpServletResponse.SC_BAD_REQUEST),
+    TypeMismatchException(400, "", HttpServletResponse.SC_BAD_REQUEST),
+    ServletRequestBindingException(400, "", HttpServletResponse.SC_BAD_REQUEST),
     HttpMessageNotReadableException(1400, "", HttpServletResponse.SC_BAD_REQUEST),
-    NoHandlerFoundException(1404, "", HttpServletResponse.SC_NOT_FOUND),
-    NoSuchRequestHandlingMethodException(1404, "", HttpServletResponse.SC_NOT_FOUND),
-    HttpRequestMethodNotSupportedException(1405, "", HttpServletResponse.SC_METHOD_NOT_ALLOWED),
-    HttpMediaTypeNotAcceptableException(1406, "", HttpServletResponse.SC_NOT_ACCEPTABLE),
-    HttpMediaTypeNotSupportedException(1415, "", HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE),
-    ConversionNotSupportedException(1500, "", HttpServletResponse.SC_INTERNAL_SERVER_ERROR),
-    HttpMessageNotWritableException(1500, "", HttpServletResponse.SC_INTERNAL_SERVER_ERROR),
-    AsyncRequestTimeoutException(1503, "", HttpServletResponse.SC_SERVICE_UNAVAILABLE)
+    NoHandlerFoundException(404, "", HttpServletResponse.SC_NOT_FOUND),
+    NoSuchRequestHandlingMethodException(404, "", HttpServletResponse.SC_NOT_FOUND),
+    HttpRequestMethodNotSupportedException(405, "", HttpServletResponse.SC_METHOD_NOT_ALLOWED),
+    HttpMediaTypeNotAcceptableException(406, "", HttpServletResponse.SC_NOT_ACCEPTABLE),
+    HttpMediaTypeNotSupportedException(415, "", HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE),
+    ConversionNotSupportedException(500, "", HttpServletResponse.SC_INTERNAL_SERVER_ERROR),
+    HttpMessageNotWritableException(500, "", HttpServletResponse.SC_INTERNAL_SERVER_ERROR),
+    AsyncRequestTimeoutException(503, "", HttpServletResponse.SC_SERVICE_UNAVAILABLE)
     ;
 
     /**

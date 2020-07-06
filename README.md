@@ -1,9 +1,9 @@
-![logo](image/stack-logo.png "logo") 
+![logo](assets/stack-logo.png "logo") 
 
 # whale-fall-stack
 
 #### DevOps
-![devops](image/msa-stack.png "devops") 
+![devops](assets/msa-stack.png "devops") 
 
 #### 工程结构
 ```
