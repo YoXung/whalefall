@@ -33,6 +33,7 @@ public class ConsumerController {
     @GetMapping({"/demos/{name}","/demos"})
     public R<DemoDTO> queryByName(@PathVariable(value = "name", required = false) @NotBlank(message = "GET参数不可以为空") String name) {
         checkParam(name);
+        System.out.println("=========消费端进来了");
         return new R<>(consumerApplicationService.queryByName(name));
     }
 

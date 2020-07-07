@@ -1,4 +1,4 @@
-package org.whalefall.stack.dubbo.gateway;
+package org.whalefall.stack.dubbo.gateway.servlet;
 
 import com.alibaba.cloud.dubbo.http.MutableHttpServerRequest;
 import com.alibaba.cloud.dubbo.metadata.DubboRestServiceMetadata;
@@ -10,24 +10,27 @@ import com.alibaba.cloud.dubbo.service.DubboGenericServiceExecutionContextFactor
 import com.alibaba.cloud.dubbo.service.DubboGenericServiceFactory;
 import org.apache.dubbo.rpc.service.GenericException;
 import org.apache.dubbo.rpc.service.GenericService;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpRequest;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.PathMatcher;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.servlet.HttpServletBean;
+import org.springframework.web.util.UriComponents;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.*;
 
 import static org.apache.commons.lang3.StringUtils.substringAfter;
 import static org.apache.commons.lang3.StringUtils.substringBetween;
+import static org.springframework.web.util.UriComponentsBuilder.fromUriString;
 
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
@@ -36,20 +39,20 @@ import static org.apache.commons.lang3.StringUtils.substringBetween;
  * @description 网关Servlet
  * @create 2020/7/6 11:29 上午
  */
-@WebServlet("/wfd/*")
+@WebServlet(urlPatterns = "/wfd/*")
 public class DubboGatewayServlet extends HttpServletBean {
-    private final DubboServiceMetadataRepository dubboServiceMetadataRepository;
-    private final DubboGenericServiceFactory dubboGenericServiceFactory;
-    private final DubboGenericServiceExecutionContextFactory dubboGenericServiceExecutionContextFactory;
+    private final DubboServiceMetadataRepository repository;
+    private final DubboGenericServiceFactory serviceFactory;
+    private final DubboGenericServiceExecutionContextFactory contextFactory;
     private final PathMatcher pathMatcher = new AntPathMatcher();
     private final Map<String, Object> dubboTranslatedAttributes = new HashMap<>();
 
-    public DubboGatewayServlet(DubboServiceMetadataRepository dubboServiceMetadataRepository,
-                               DubboGenericServiceFactory dubboGenericServiceFactory,
-                               DubboGenericServiceExecutionContextFactory dubboGenericServiceExecutionContextFactory) {
-        this.dubboServiceMetadataRepository = dubboServiceMetadataRepository;
-        this.dubboGenericServiceFactory = dubboGenericServiceFactory;
-        this.dubboGenericServiceExecutionContextFactory = dubboGenericServiceExecutionContextFactory;
+    public DubboGatewayServlet(DubboServiceMetadataRepository repository,
+                               DubboGenericServiceFactory serviceFactory,
+                               DubboGenericServiceExecutionContextFactory contextFactory) {
+        this.repository = repository;
+        this.serviceFactory = serviceFactory;
+        this.contextFactory = contextFactory;
         dubboTranslatedAttributes.put("protocol", "dubbo");
         dubboTranslatedAttributes.put("cluster", "failover");
     }
@@ -57,15 +60,14 @@ public class DubboGatewayServlet extends HttpServletBean {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String serviceName = resolveServiceName(req);
-        //String restPath = substringAfter(((HttpServletRequest) req).getRequestURI(), serviceName);
         String restPath = resolveRestPath(req);
 
         // 初始化 serviceName 的 REST 请求元数据
-        dubboServiceMetadataRepository.initializeMetadata(serviceName);
+        repository.initializeMetadata(serviceName);
         // 将 HttpServletRequest 转化为 RequestMetadata
         RequestMetadata requestMetadata = buildRequestMetadata(req, restPath);
 
-        DubboRestServiceMetadata dubboRestServiceMetadata = dubboServiceMetadataRepository.get(serviceName,
+        DubboRestServiceMetadata dubboRestServiceMetadata = repository.get(serviceName,
                 requestMetadata);
 
         if (dubboRestServiceMetadata == null) {
@@ -77,16 +79,16 @@ public class DubboGatewayServlet extends HttpServletBean {
         RestMethodMetadata restMethodMetadata = dubboRestServiceMetadata
                 .getRestMethodMetadata();
 
-        GenericService genericService = dubboGenericServiceFactory.create(dubboRestServiceMetadata,
+        GenericService genericService = serviceFactory.create(dubboRestServiceMetadata,
                 dubboTranslatedAttributes);
 
         // TODO: Get the Request Body from HttpServletRequest
-        byte[] body = getRequestBody((HttpServletRequest) req);
+        byte[] body = getRequestBody(req);
 
         MutableHttpServerRequest httpServerRequest = new MutableHttpServerRequest(
                 new HttpRequestAdapter(req), body);
 
-        DubboGenericServiceExecutionContext context = dubboGenericServiceExecutionContextFactory
+        DubboGenericServiceExecutionContext context = contextFactory
                 .create(restMethodMetadata, httpServerRequest);
 
         Object result = null;
@@ -98,19 +100,17 @@ public class DubboGatewayServlet extends HttpServletBean {
         } catch (GenericException e) {
             exception = e;
         }
-        res.getWriter().println("++++++网关获得返回数据++++++"+result);
+        resp.getWriter().println("++++++网关获得返回数据++++++" + result);
     }
 
     private String resolveServiceName(HttpServletRequest httpServletRequest) {
         // /g/{app-name}/{rest-path}
         String requestURI = httpServletRequest.getRequestURI();
-        // /g/
+        // /g
         String servletPath = httpServletRequest.getServletPath();
-
+        // /{app-name}/{rest-path}
         String part = substringAfter(requestURI, servletPath);
-
         String serviceName = substringBetween(part, "/", "/");
-
         return serviceName;
     }
 
@@ -124,11 +124,65 @@ public class DubboGatewayServlet extends HttpServletBean {
     }
 
     private RequestMetadata buildRequestMetadata(HttpServletRequest httpServletRequest, String restPath) {
+        UriComponents uriComponents = fromUriString(httpServletRequest.getRequestURI()).build(true);
+        RequestMetadata requestMetadata = new RequestMetadata();
+        requestMetadata.setPath(restPath);
+        requestMetadata.setMethod(httpServletRequest.getMethod());
+        requestMetadata.setParams(getParams(httpServletRequest));
+        requestMetadata.setHeaders(getHeaders(httpServletRequest));
+        return requestMetadata;
+    }
 
+    private Map<String, List<String>> getParams(HttpServletRequest request) {
+        Map<String, List<String>> map = new LinkedHashMap<>();
+        for (Map.Entry<String, String[]> entry : request.getParameterMap().entrySet()) {
+            map.put(entry.getKey(), Arrays.asList(entry.getValue()));
+        }
+        return map;
+    }
+
+    private Map<String, List<String>> getHeaders(HttpServletRequest request) {
+        Map<String, List<String>> map = new LinkedHashMap<>();
+        Enumeration<String> headerNames = request.getHeaderNames();
+        while (headerNames.hasMoreElements()) {
+            String headerName = headerNames.nextElement();
+            Enumeration<String> headerValues = request.getHeaders(headerName);
+            map.put(headerName, Collections.list(headerValues));
+        }
+        return map;
     }
 
     private byte[] getRequestBody(HttpServletRequest request) throws IOException {
         ServletInputStream inputStream = request.getInputStream();
         return StreamUtils.copyToByteArray(inputStream);
+    }
+
+    private final static class HttpRequestAdapter implements HttpRequest {
+        private final HttpServletRequest httpServletRequest;
+
+        private HttpRequestAdapter(HttpServletRequest httpServletRequest) {
+            this.httpServletRequest = httpServletRequest;
+        }
+
+        @Override
+        public String getMethodValue() {
+            return httpServletRequest.getMethod();
+        }
+
+        @Override
+        public URI getURI() {
+            try {
+                return new URI(httpServletRequest.getRequestURL().toString() + "?"
+                        + httpServletRequest.getQueryString());
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+            throw new RuntimeException();
+        }
+
+        @Override
+        public HttpHeaders getHeaders() {
+            return new HttpHeaders();
+        }
     }
 }

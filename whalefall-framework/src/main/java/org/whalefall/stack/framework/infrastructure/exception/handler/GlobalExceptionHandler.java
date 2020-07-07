@@ -180,7 +180,7 @@ public class GlobalExceptionHandler {
         StringBuilder msg = new StringBuilder();
         System.out.println("++++++++++这里进来了");
 
-        msg.append(bindingResult.getFieldErrors().size() > 0 ? "" : bindingResult.getAllErrors().get(0).getDefaultMessage());
+        msg.append(bindingResult.getFieldErrors().size() > 0 ? bindingResult.getAllErrors().get(0).getDefaultMessage() : "");
 //        for (ObjectError error : bindingResult.getAllErrors()) {
 //            msg.append(", ");
 ////            if (error instanceof FieldError) {

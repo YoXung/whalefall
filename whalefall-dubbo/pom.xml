@@ -14,6 +14,7 @@
 
     <modules>
         <module>whalefall-dubbo-gateway</module>
+        <module>whalefall-dubbo-consumer-api</module>
         <module>whalefall-dubbo-consumer</module>
         <module>whalefall-dubbo-api</module>
         <module>whalefall-dubbo-provider</module>
