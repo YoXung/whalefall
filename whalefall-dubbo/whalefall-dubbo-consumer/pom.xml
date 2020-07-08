@@ -13,14 +13,11 @@
     <description>Dubbo消费者</description>
 
     <dependencies>
+
+
         <dependency>
             <groupId>org.whalefall.stack</groupId>
-            <artifactId>whalefall-framework</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.whalefall.stack</groupId>
-            <artifactId>whalefall-dubbo-api</artifactId>
+            <artifactId>whalefall-dubbo-consumer-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

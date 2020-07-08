@@ -1,9 +1,11 @@
 package org.whalefall.stack.dubbo.consumer.ui;
 
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.whalefall.stack.dubbo.api.provider.query.dto.DemoDTO;
+import org.whalefall.stack.dubbo.consumer.api.facade.ConsumerApi;
 import org.whalefall.stack.dubbo.consumer.applicaiton.api.ConsumerApplicationService;
 import org.whalefall.stack.dubbo.consumer.infrastructure.exception.ConsumerDubboException;
 import org.whalefall.stack.dubbo.consumer.ui.vo.ConsumerVO;
@@ -18,10 +20,11 @@ import javax.validation.constraints.NotBlank;
  * @description
  * @create 2020/6/28 3:09 下午
  */
+@Service(interfaceClass = ConsumerApi.class, protocol = {"dubbo", "rest"})
 @RestController
 @RequestMapping("/consumer/dubbo")
 @Validated
-public class ConsumerController {
+public class ConsumerController implements ConsumerApi {
     @Autowired
     private ConsumerApplicationService consumerApplicationService;
 
