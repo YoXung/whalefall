@@ -6,9 +6,9 @@ import org.whalefall.stack.framework.ui.vo.R;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
-@Path("/consumer")
+//@Path("/consumer")
 public interface ConsumerApi {
-    @GET
-    @Path("/dubbo/demos/{name}")
-    R<DemoDTO> queryByName(String name);
+    //@GET
+    //@Path("/dubbo/demos/{name}")
+    R<DemoDTO> queryById(long id);
 }

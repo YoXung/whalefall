@@ -20,9 +20,9 @@ import javax.validation.constraints.NotBlank;
  * @description
  * @create 2020/6/28 3:09 下午
  */
-@Service(interfaceClass = ConsumerApi.class, protocol = {"dubbo", "rest"})
+@Service(interfaceClass = ConsumerApi.class)
 @RestController
-@RequestMapping("/consumer/dubbo")
+//@RequestMapping("/consumer/dubbo")
 @Validated
 public class ConsumerController implements ConsumerApi {
     @Autowired
@@ -34,10 +34,20 @@ public class ConsumerController implements ConsumerApi {
     }
 
     @GetMapping({"/demos/{name}","/demos"})
-    public R<DemoDTO> queryByName(@PathVariable(value = "name", required = false) @NotBlank(message = "GET参数不可以为空") String name) {
+    public R<DemoDTO> queryByName(@PathVariable(value = "name", required = false)
+                                      @NotBlank(message = "GET参数不可以为空") String name) {
         checkParam(name);
         System.out.println("=========消费端进来了");
         return new R<>(consumerApplicationService.queryByName(name));
+    }
+
+    //FIXME:泛化调用测试
+    @Override
+    @GetMapping("/test")
+    public R<DemoDTO> queryById(@RequestParam("id") long id) {
+        DemoDTO demoDTO = new DemoDTO();
+        demoDTO.setId(id);
+        return new R<>(demoDTO);
     }
 
     private void checkParam(String param) {

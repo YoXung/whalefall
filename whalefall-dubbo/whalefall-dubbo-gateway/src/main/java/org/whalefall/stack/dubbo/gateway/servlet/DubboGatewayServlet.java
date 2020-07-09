@@ -53,7 +53,7 @@ public class DubboGatewayServlet extends HttpServletBean {
         this.repository = repository;
         this.serviceFactory = serviceFactory;
         this.contextFactory = contextFactory;
-        dubboTranslatedAttributes.put("protocol", "{dubbo, rest}");
+        dubboTranslatedAttributes.put("protocol", "dubbo");
         dubboTranslatedAttributes.put("cluster", "failover");
     }
 
