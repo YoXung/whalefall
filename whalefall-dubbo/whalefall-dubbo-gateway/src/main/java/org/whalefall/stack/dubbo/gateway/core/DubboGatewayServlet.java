@@ -1,4 +1,4 @@
-package org.whalefall.stack.dubbo.gateway.servlet;
+package org.whalefall.stack.dubbo.gateway.core;
 
 import com.alibaba.cloud.dubbo.http.MutableHttpServerRequest;
 import com.alibaba.cloud.dubbo.metadata.DubboRestServiceMetadata;
@@ -36,7 +36,7 @@ import static org.springframework.web.util.UriComponentsBuilder.fromUriString;
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
  * @author YaoXiang
- * @description 网关Servlet
+ * @description dubbo网关泛化调用
  * @create 2020/7/6 11:29 上午
  */
 @WebServlet(urlPatterns = "/wfd/*")
@@ -44,7 +44,7 @@ public class DubboGatewayServlet extends HttpServletBean {
     private final DubboServiceMetadataRepository repository;
     private final DubboGenericServiceFactory serviceFactory;
     private final DubboGenericServiceExecutionContextFactory contextFactory;
-    private final PathMatcher pathMatcher = new AntPathMatcher();
+    //private final PathMatcher pathMatcher = new AntPathMatcher();
     private final Map<String, Object> dubboTranslatedAttributes = new HashMap<>();
 
     public DubboGatewayServlet(DubboServiceMetadataRepository repository,

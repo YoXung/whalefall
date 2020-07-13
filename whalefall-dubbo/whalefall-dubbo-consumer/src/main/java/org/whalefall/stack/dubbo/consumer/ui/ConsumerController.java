@@ -20,7 +20,7 @@ import javax.validation.constraints.NotBlank;
  * @description
  * @create 2020/6/28 3:09 下午
  */
-@Service(interfaceClass = ConsumerApi.class)
+@Service
 @RestController
 //@RequestMapping("/consumer/dubbo")
 @Validated
