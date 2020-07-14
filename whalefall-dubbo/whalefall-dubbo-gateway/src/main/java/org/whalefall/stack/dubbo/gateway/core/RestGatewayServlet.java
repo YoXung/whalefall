@@ -1,12 +1,12 @@
 package org.whalefall.stack.dubbo.gateway.core;
 
-import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.HttpServletBean;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -59,8 +59,8 @@ public class RestGatewayServlet extends HttpServletBean {
             }
 
             HttpEntity<String> httpEntity = new HttpEntity<>(getRequestBody(req), headers);
-            //restTemplate.exchange(uri, HttpMethod.resolve(req.getMethod()), httpEntity, String.class);
-            resp.getWriter().write(String.valueOf(restTemplate.exchange(uri, HttpMethod.resolve(req.getMethod()), httpEntity, String.class)));
+            ResponseEntity<String> responseEntity = restTemplate.exchange(uri, HttpMethod.resolve(req.getMethod()), httpEntity, String.class);
+            resp.getWriter().write(responseEntity.getBody());
 
         } catch (URISyntaxException e) {
             e.printStackTrace();
