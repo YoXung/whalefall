@@ -37,18 +37,22 @@ public class RestGatewayServlet extends HttpServletBean {
     private String serverIP;
     @Value("${rest.server.port}")
     private int port;
+    /** uri规则需要根据项目情况定义 */
+    private String uriRegex = "/wfrest";
 
     @Autowired
     private RestTemplate restTemplate;
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String requestUrl = StringUtils.substringAfter(req.getRequestURI(), "/wfrest");
+//        String requestUrl = StringUtils.substringAfter(req.getRequestURI(), "/wfrest");
+        String[] requestUris = req.getRequestURI().split(uriRegex);
+        String requestUri = requestUris[1];
         try {// http://localhost:9097/
             URI uri = new URI("http", null, serverIP, port, null, null, null);
             // http://localhost:9097/xxxx/xxxx
             uri = UriComponentsBuilder.fromUri(uri)
-                    .path(requestUrl)
+                    .path(requestUri)
                     .query(req.getQueryString())
                     .build(true).toUri();
             HttpHeaders headers = new HttpHeaders();
