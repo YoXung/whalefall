@@ -1,6 +1,5 @@
 package org.whalefall.stack.dubbo.gateway.core;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -45,10 +44,10 @@ public class RestGatewayServlet extends HttpServletBean {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        String requestUrl = StringUtils.substringAfter(req.getRequestURI(), "/wfrest");
         String[] requestUris = req.getRequestURI().split(uriRegex);
         String requestUri = requestUris[1];
-        try {// http://localhost:9097/
+        try {
+            // http://localhost:9097/
             URI uri = new URI("http", null, serverIP, port, null, null, null);
             // http://localhost:9097/xxxx/xxxx
             uri = UriComponentsBuilder.fromUri(uri)
