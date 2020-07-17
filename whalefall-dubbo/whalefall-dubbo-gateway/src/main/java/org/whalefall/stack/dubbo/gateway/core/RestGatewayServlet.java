@@ -76,7 +76,7 @@ public class RestGatewayServlet extends HttpServletBean {
             //byte[] bytes = StreamUtils.copyToByteArray(inputStream);
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
             String line = "";
-            if ((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
                 sb.append(line);
             }
         } catch (IOException e) {

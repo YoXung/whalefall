@@ -43,11 +43,18 @@ public class ConsumerController implements ConsumerApi {
 
     //FIXME:泛化调用测试
     @Override
-    @GetMapping("/test")
-    public R<DemoDTO> queryById(@RequestParam("id") long id) {
+    @GetMapping("/testget")
+    public R<DemoDTO> testGet(@RequestParam("id") long id) {
         DemoDTO demoDTO = new DemoDTO();
         demoDTO.setId(id);
         return new R<>(demoDTO);
+    }
+
+
+    // restTemplate测试
+    @PostMapping("/testpost")
+    public String testPost(@RequestBody Object o) {
+        return o.toString();
     }
 
     private void checkParam(String param) {

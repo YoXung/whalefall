@@ -11,5 +11,5 @@ public class WhalefallDubboGatewayApplication {
     public static void main(String[] args) {
         SpringApplication.run(WhalefallDubboGatewayApplication.class, args);
     }
-
+    
 }

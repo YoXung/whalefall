@@ -7,5 +7,5 @@ import org.whalefall.stack.framework.ui.vo.R;
 public interface ConsumerApi {
     //@GET
     //@Path("/dubbo/demos/{name}")
-    R<DemoDTO> queryById(long id);
+    R<DemoDTO> testGet(long id);
 }

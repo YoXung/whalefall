@@ -100,7 +100,7 @@ public class DubboGatewayServlet extends HttpServletBean {
         } catch (GenericException e) {
             exception = e;
         }
-        resp.getWriter().println("++++++网关获得返回数据++++++" + result);
+        resp.getWriter().write(result.toString());
     }
 
     private String resolveServiceName(HttpServletRequest httpServletRequest) {
