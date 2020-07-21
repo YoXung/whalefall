@@ -22,7 +22,7 @@ import javax.validation.constraints.NotBlank;
  */
 @Service
 @RestController
-@RequestMapping("/consumer/dubbo")
+@RequestMapping("/dubbo")
 @Validated
 public class ConsumerController implements ConsumerApi {
     @Autowired
