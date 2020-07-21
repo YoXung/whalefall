@@ -22,7 +22,7 @@ import javax.validation.constraints.NotBlank;
  */
 @Service
 @RestController
-//@RequestMapping("/consumer/dubbo")
+@RequestMapping("/consumer/dubbo")
 @Validated
 public class ConsumerController implements ConsumerApi {
     @Autowired
@@ -43,8 +43,8 @@ public class ConsumerController implements ConsumerApi {
 
     //FIXME:泛化调用测试
     @Override
-    @GetMapping("/testget")
-    public R<DemoDTO> testGet(@RequestParam("id") long id) {
+    @GetMapping("/testget/{id}")
+    public R<DemoDTO> testGet(@PathVariable("id") long id) {
         DemoDTO demoDTO = new DemoDTO();
         demoDTO.setId(id);
         return new R<>(demoDTO);

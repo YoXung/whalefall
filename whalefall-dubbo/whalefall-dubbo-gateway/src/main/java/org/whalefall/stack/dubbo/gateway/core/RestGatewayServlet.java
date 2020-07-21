@@ -63,8 +63,8 @@ public class RestGatewayServlet extends HttpServletBean {
 
             HttpEntity<String> httpEntity = new HttpEntity<>(getRequestBody(req), headers);
             ResponseEntity<String> responseEntity = restTemplate.exchange(uri, HttpMethod.resolve(req.getMethod()), httpEntity, String.class);
+            resp.setCharacterEncoding("UTF-8");
             resp.getWriter().write(responseEntity.getBody());
-
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
