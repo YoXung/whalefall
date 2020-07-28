@@ -1,4 +1,4 @@
-package org.whalefall.stack.dubbo.gateway.core;
+package org.whalefall.stack.dubbo.gateway.generic;
 
 import com.alibaba.cloud.dubbo.http.MutableHttpServerRequest;
 import com.alibaba.cloud.dubbo.metadata.DubboRestServiceMetadata;
@@ -12,8 +12,6 @@ import org.apache.dubbo.rpc.service.GenericException;
 import org.apache.dubbo.rpc.service.GenericService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;
-import org.springframework.util.AntPathMatcher;
-import org.springframework.util.PathMatcher;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.servlet.HttpServletBean;
 import org.springframework.web.util.UriComponents;

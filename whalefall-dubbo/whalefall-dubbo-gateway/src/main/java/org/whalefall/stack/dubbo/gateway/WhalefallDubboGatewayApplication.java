@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @SpringBootApplication
-@ServletComponentScan(basePackages = "org.whalefall.stack.dubbo.gateway.core")
+@ServletComponentScan(basePackages = "org.whalefall.stack.dubbo.gateway")
 public class WhalefallDubboGatewayApplication {
 
     public static void main(String[] args) {

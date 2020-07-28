@@ -1,4 +1,4 @@
-package org.whalefall.stack.dubbo.gateway.core;
+package org.whalefall.stack.dubbo.gateway.restful;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,6 +36,8 @@ public class RestGatewayServlet extends HttpServletBean {
     private String serverIP;
     @Value("${rest.server.port}")
     private int port;
+    @Value("${rest.server.name}")
+    private String serverName;
     /** uri规则需要根据项目情况定义 */
     private String uriRegex = "/wfrest";
 
@@ -48,7 +50,7 @@ public class RestGatewayServlet extends HttpServletBean {
         String requestUri = requestUris[1];
         try {
             // http://localhost:9097/
-            URI uri = new URI("http", null, serverIP, port, null, null, null);
+            URI uri = new URI("http", null, serverName, -1, null, null, null);
             // http://localhost:9097/xxxx/xxxx
             uri = UriComponentsBuilder.fromUri(uri)
                     .path(requestUri)
