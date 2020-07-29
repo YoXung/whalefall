@@ -23,6 +23,7 @@
 
     <modules>
         <module>whalefall-framework</module>
+        <module>whalefall-common</module>
         <module>whalefall-dubbo</module>
     </modules>
 
