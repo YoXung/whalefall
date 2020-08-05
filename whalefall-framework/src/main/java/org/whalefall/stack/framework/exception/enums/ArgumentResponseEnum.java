@@ -13,7 +13,7 @@ import org.whalefall.stack.framework.exception.assertion.ArgumentExceptionAssert
  */
 @Getter
 @AllArgsConstructor
-public enum  ArgumentResponseEnum implements ArgumentExceptionAssert {
+public enum ArgumentResponseEnum implements ArgumentExceptionAssert {
     VALID_ERROR(10050, "参数校验异常"),
     // Time
     DATE_NOT_NULL(10051, "日期不能为空"),

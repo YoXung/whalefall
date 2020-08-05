@@ -11,6 +11,6 @@ import org.springframework.context.annotation.PropertySource;
  * @create 2020/5/28 3:22 下午
  */
 @Configuration
-@PropertySource(value = "rpcException.properties")
+@PropertySource(value = "rpc.properties")
 public class DubboConfiguration {
 }
