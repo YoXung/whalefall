@@ -9,7 +9,7 @@ import org.whalefall.stack.dubbo.consumer.api.facade.ConsumerApi;
 import org.whalefall.stack.dubbo.consumer.applicaiton.api.ConsumerApplicationService;
 import org.whalefall.stack.dubbo.consumer.infrastructure.exception.ConsumerDubboException;
 import org.whalefall.stack.dubbo.consumer.ui.vo.ConsumerVO;
-import org.whalefall.stack.framework.ui.vo.R;
+import org.whalefall.stack.framework.exception.ui.R;
 
 import javax.validation.constraints.NotBlank;
 

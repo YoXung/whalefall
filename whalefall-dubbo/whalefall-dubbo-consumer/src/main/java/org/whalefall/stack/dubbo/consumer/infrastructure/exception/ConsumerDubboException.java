@@ -2,7 +2,7 @@ package org.whalefall.stack.dubbo.consumer.infrastructure.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.whalefall.stack.framework.infrastructure.exception.assertion.BizExceptionAssert;
+import org.whalefall.stack.framework.exception.assertion.BizExceptionAssert;
 
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved

@@ -1,7 +1,10 @@
-package org.whalefall.stack.framework.ui.vo;
+package org.whalefall.stack.framework.exception.ui;
 
-import lombok.*;
-import org.whalefall.stack.framework.infrastructure.enums.CommonResponseEnum;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import org.whalefall.stack.framework.exception.enums.CommonResponseEnum;
 
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved

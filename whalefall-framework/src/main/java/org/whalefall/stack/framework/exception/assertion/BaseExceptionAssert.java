@@ -1,6 +1,6 @@
-package org.whalefall.stack.framework.infrastructure.exception.assertion;
+package org.whalefall.stack.framework.exception.assertion;
 
-import org.whalefall.stack.framework.infrastructure.exception.BaseException;
+import org.whalefall.stack.framework.exception.core.BaseException;
 
 import java.util.Collection;
 import java.util.Map;

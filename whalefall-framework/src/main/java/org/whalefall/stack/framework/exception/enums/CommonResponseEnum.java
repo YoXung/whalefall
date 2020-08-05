@@ -1,17 +1,17 @@
-package org.whalefall.stack.framework.infrastructure.enums;
+package org.whalefall.stack.framework.exception.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.whalefall.stack.framework.infrastructure.exception.BaseException;
-import org.whalefall.stack.framework.infrastructure.exception.assertion.CommonExceptionAssert;
-import org.whalefall.stack.framework.ui.vo.BaseResponseVO;
+import org.whalefall.stack.framework.exception.assertion.CommonExceptionAssert;
+import org.whalefall.stack.framework.exception.core.BaseException;
+import org.whalefall.stack.framework.exception.ui.BaseResponseVO;
 
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
  * @author YaoXiang
  * @description 通用异常枚举
- * @create 2020/5/27 9:37 上午
+ * @create 2020/8/5 10:57 上午
  */
 @Getter
 @AllArgsConstructor

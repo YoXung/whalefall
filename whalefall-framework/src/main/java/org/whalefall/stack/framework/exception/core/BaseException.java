@@ -1,8 +1,8 @@
-package org.whalefall.stack.framework.infrastructure.exception;
+package org.whalefall.stack.framework.exception.core;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.whalefall.stack.framework.infrastructure.enums.BaseResponseEnum;
+import org.whalefall.stack.framework.exception.enums.BaseResponseEnum;
 
 import java.io.Serializable;
 

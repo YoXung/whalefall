@@ -1,4 +1,4 @@
-package org.whalefall.stack.framework.infrastructure.exception.config;
+package org.whalefall.stack.framework.exception.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -11,6 +11,6 @@ import org.springframework.context.annotation.PropertySource;
  * @create 2020/5/28 3:22 下午
  */
 @Configuration
-@PropertySource(value = "framework.properties")
+@PropertySource(value = "rpcException.properties")
 public class DubboConfiguration {
 }

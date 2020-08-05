@@ -1,4 +1,4 @@
-package org.whalefall.stack.framework.infrastructure.enums;
+package org.whalefall.stack.framework.exception.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author YaoXiang
  * @description 服务器异常枚举
- * @create 2020/5/27 9:43 上午
+ * @create 2020/8/5 11:05 上午
  */
 @Getter
 @AllArgsConstructor
@@ -19,7 +19,7 @@ public enum ServletResponseEnum {
     MethodArgumentTypeMismatchException(400, "", HttpServletResponse.SC_BAD_REQUEST),
     MissingServletRequestPartException(400, "", HttpServletResponse.SC_BAD_REQUEST),
     MissingPathVariableException(400, "", HttpServletResponse.SC_BAD_REQUEST),
-    BindException(400, "", HttpServletResponse.SC_BAD_REQUEST),
+    BindException(400, "",HttpServletResponse.SC_BAD_REQUEST),
     MissingServletRequestParameterException(400, "", HttpServletResponse.SC_BAD_REQUEST),
     TypeMismatchException(400, "", HttpServletResponse.SC_BAD_REQUEST),
     ServletRequestBindingException(400, "", HttpServletResponse.SC_BAD_REQUEST),

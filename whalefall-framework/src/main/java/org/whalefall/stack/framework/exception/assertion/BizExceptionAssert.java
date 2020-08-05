@@ -1,8 +1,8 @@
-package org.whalefall.stack.framework.infrastructure.exception.assertion;
+package org.whalefall.stack.framework.exception.assertion;
 
-import org.whalefall.stack.framework.infrastructure.enums.BaseResponseEnum;
-import org.whalefall.stack.framework.infrastructure.exception.BaseException;
-import org.whalefall.stack.framework.infrastructure.exception.BizException;
+import org.whalefall.stack.framework.exception.core.BaseException;
+import org.whalefall.stack.framework.exception.core.BizException;
+import org.whalefall.stack.framework.exception.enums.BaseResponseEnum;
 
 import java.text.MessageFormat;
 

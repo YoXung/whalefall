@@ -1,4 +1,4 @@
-package org.whalefall.stack.framework.infrastructure.i18n;
+package org.whalefall.stack.framework.exception.i18n;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;

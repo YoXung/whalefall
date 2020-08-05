@@ -1,4 +1,4 @@
-package org.whalefall.stack.framework.ui.vo;
+package org.whalefall.stack.framework.exception.ui;
 
 import lombok.NoArgsConstructor;
 

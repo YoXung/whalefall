@@ -1,4 +1,4 @@
-package org.whalefall.stack.framework.infrastructure.exception.filter;
+package org.whalefall.stack.framework.exception.filter;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.common.constants.CommonConstants;
@@ -7,7 +7,7 @@ import org.apache.dubbo.common.utils.ReflectUtils;
 import org.apache.dubbo.common.utils.StringUtils;
 import org.apache.dubbo.rpc.*;
 import org.apache.dubbo.rpc.service.GenericService;
-import org.whalefall.stack.framework.infrastructure.exception.BaseException;
+import org.whalefall.stack.framework.exception.core.BaseException;
 
 import java.lang.reflect.Method;
 

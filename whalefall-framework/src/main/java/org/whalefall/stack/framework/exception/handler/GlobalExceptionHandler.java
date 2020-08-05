@@ -1,4 +1,4 @@
-package org.whalefall.stack.framework.infrastructure.exception.handler;
+package org.whalefall.stack.framework.exception.handler;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -25,13 +25,13 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.async.AsyncRequestTimeoutException;
 import org.springframework.web.multipart.support.MissingServletRequestPartException;
 import org.springframework.web.servlet.NoHandlerFoundException;
-import org.whalefall.stack.framework.infrastructure.enums.ArgumentResponseEnum;
-import org.whalefall.stack.framework.infrastructure.enums.CommonResponseEnum;
-import org.whalefall.stack.framework.infrastructure.enums.ServletResponseEnum;
-import org.whalefall.stack.framework.infrastructure.exception.BaseException;
-import org.whalefall.stack.framework.infrastructure.exception.BizException;
-import org.whalefall.stack.framework.infrastructure.i18n.GlobalMessageSource;
-import org.whalefall.stack.framework.ui.vo.ER;
+import org.whalefall.stack.framework.exception.core.BaseException;
+import org.whalefall.stack.framework.exception.core.BizException;
+import org.whalefall.stack.framework.exception.enums.ArgumentResponseEnum;
+import org.whalefall.stack.framework.exception.enums.CommonResponseEnum;
+import org.whalefall.stack.framework.exception.enums.ServletResponseEnum;
+import org.whalefall.stack.framework.exception.i18n.GlobalMessageSource;
+import org.whalefall.stack.framework.exception.ui.ER;
 
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved

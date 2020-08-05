@@ -1,6 +1,6 @@
-package org.whalefall.stack.framework.infrastructure.exception;
+package org.whalefall.stack.framework.exception.core;
 
-import org.whalefall.stack.framework.infrastructure.enums.BaseResponseEnum;
+import org.whalefall.stack.framework.exception.enums.BaseResponseEnum;
 
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
