@@ -1,7 +1,7 @@
 package org.whalefall.stack.dubbo.consumer.ui;
 
-import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -22,7 +22,7 @@ import javax.validation.constraints.NotBlank;
  * @description
  * @create 2020/6/28 3:09 下午
  */
-@Api(tags = "dubbo消费者demo")
+@Tag(name = "dubbo消费者demo")
 @Service
 @RestController
 @RequestMapping("/dubbo")
