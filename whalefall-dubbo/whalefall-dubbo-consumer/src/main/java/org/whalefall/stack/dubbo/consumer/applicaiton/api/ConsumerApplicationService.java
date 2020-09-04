@@ -1,7 +1,7 @@
 package org.whalefall.stack.dubbo.consumer.applicaiton.api;
 
 import org.whalefall.stack.dubbo.api.provider.query.dto.DemoDTO;
-import org.whalefall.stack.dubbo.consumer.ui.vo.ConsumerVO;
+import org.whalefall.stack.dubbo.consumer.ui.viewobject.ConsumerVO;
 
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved

@@ -10,7 +10,7 @@ import org.whalefall.stack.dubbo.api.provider.query.facade.DemoQueryService;
 import org.whalefall.stack.dubbo.api.provider.query.qry.DemoQry;
 import org.whalefall.stack.dubbo.consumer.applicaiton.api.ConsumerApplicationService;
 import org.whalefall.stack.dubbo.consumer.infrastructure.assembler.DemoCmdAssembler;
-import org.whalefall.stack.dubbo.consumer.ui.vo.ConsumerVO;
+import org.whalefall.stack.dubbo.consumer.ui.viewobject.ConsumerVO;
 
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved

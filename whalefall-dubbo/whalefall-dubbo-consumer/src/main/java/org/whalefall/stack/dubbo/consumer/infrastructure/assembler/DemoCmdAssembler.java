@@ -3,7 +3,7 @@ package org.whalefall.stack.dubbo.consumer.infrastructure.assembler;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 import org.whalefall.stack.dubbo.api.provider.command.cmd.DemoCmd;
-import org.whalefall.stack.dubbo.consumer.ui.vo.ConsumerVO;
+import org.whalefall.stack.dubbo.consumer.ui.viewobject.ConsumerVO;
 
 import java.util.function.Function;
 

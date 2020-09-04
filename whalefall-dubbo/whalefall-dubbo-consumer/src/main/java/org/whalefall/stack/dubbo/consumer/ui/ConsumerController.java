@@ -1,5 +1,7 @@
 package org.whalefall.stack.dubbo.consumer.ui;
 
+import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.Operation;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -8,7 +10,7 @@ import org.whalefall.stack.dubbo.api.provider.query.dto.DemoDTO;
 import org.whalefall.stack.dubbo.consumer.api.facade.ConsumerApi;
 import org.whalefall.stack.dubbo.consumer.applicaiton.api.ConsumerApplicationService;
 import org.whalefall.stack.dubbo.consumer.infrastructure.exception.ConsumerDubboException;
-import org.whalefall.stack.dubbo.consumer.ui.vo.ConsumerVO;
+import org.whalefall.stack.dubbo.consumer.ui.viewobject.ConsumerVO;
 import org.whalefall.stack.framework.exception.ui.R;
 
 import javax.validation.constraints.NotBlank;
@@ -20,6 +22,7 @@ import javax.validation.constraints.NotBlank;
  * @description
  * @create 2020/6/28 3:09 下午
  */
+@Api(tags = "dubbo消费者demo")
 @Service
 @RestController
 @RequestMapping("/dubbo")
@@ -28,11 +31,13 @@ public class ConsumerController implements ConsumerApi {
     @Autowired
     private ConsumerApplicationService consumerApplicationService;
 
+    @Operation(summary = "创建方法")
     @PostMapping("/demos")
     public R<Integer> createDemo(@RequestBody @Validated ConsumerVO consumerVO) {
         return new R<>(Integer.valueOf(consumerApplicationService.createDemo(consumerVO)));
     }
 
+    @Operation(summary = "通过名称查询方法")
     @GetMapping({"/demos/{name}","/demos"})
     public R<DemoDTO> queryByName(@PathVariable(value = "name", required = false)
                                       @NotBlank(message = "GET参数不可以为空") String name) {
