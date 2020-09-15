@@ -36,8 +36,7 @@ public class ConsumerApplicationServiceImpl implements ConsumerApplicationServic
 
     @Override
     public DemoDTO queryByName(String name) {
-        DemoQry demoQry = new DemoQry();
-        demoQry.setName(name);
+        DemoQry demoQry = new DemoQry().setName(name);
         return demoQueryService.queryDemo(demoQry);
     }
 }

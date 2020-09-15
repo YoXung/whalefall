@@ -2,7 +2,10 @@ package org.whalefall.stack.dubbo.provider.infrastructure.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.whalefall.stack.dubbo.api.provider.query.dto.DemoDTO;
 import org.whalefall.stack.dubbo.provider.domain.demo.repository.DemoRepository;
+import org.whalefall.stack.dubbo.provider.infrastructure.convertor.DemoConvertor;
+import org.whalefall.stack.dubbo.provider.infrastructure.exception.ProviderExceptionEnum;
 import org.whalefall.stack.dubbo.provider.infrastructure.repository.mapper.DemoMapper;
 import org.whalefall.stack.dubbo.provider.infrastructure.repository.persistence.DemoPO;
 
@@ -18,8 +21,9 @@ public class DemoRepositoryImpl implements DemoRepository {
     @Autowired(required = false)
     private DemoMapper demoMapper;
     @Override
-    public DemoPO findByName(String name) {
+    public DemoDTO findByName(String name) {
         DemoPO demoPO = demoMapper.selectByName(name);
-        return demoPO;
+        ProviderExceptionEnum.DO_NOT_EXIT.assertIsNull(demoPO);
+        return DemoConvertor.toDemoDTO(demoPO);
     }
 }

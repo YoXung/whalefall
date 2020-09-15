@@ -14,6 +14,7 @@ import org.whalefall.stack.framework.exception.assertion.BizExceptionAssert;
 @Getter
 @AllArgsConstructor
 public enum ProviderExceptionEnum implements BizExceptionAssert {
+    DO_NOT_EXIT(20001, "查询不存在")
     ;
     private int code;
     private String message;

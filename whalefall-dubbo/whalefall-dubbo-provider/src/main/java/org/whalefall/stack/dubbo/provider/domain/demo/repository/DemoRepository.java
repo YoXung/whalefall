@@ -1,5 +1,6 @@
 package org.whalefall.stack.dubbo.provider.domain.demo.repository;
 
+import org.whalefall.stack.dubbo.api.provider.query.dto.DemoDTO;
 import org.whalefall.stack.dubbo.provider.infrastructure.repository.persistence.DemoPO;
 
 /**
@@ -10,5 +11,5 @@ import org.whalefall.stack.dubbo.provider.infrastructure.repository.persistence.
  * @create 2020/7/3 9:04 上午
  */
 public interface DemoRepository {
-    DemoPO findByName(String name);
+    DemoDTO findByName(String name);
 }
