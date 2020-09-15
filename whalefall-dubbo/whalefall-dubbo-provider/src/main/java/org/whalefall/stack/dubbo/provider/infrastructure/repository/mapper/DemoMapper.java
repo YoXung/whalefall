@@ -14,6 +14,6 @@ import org.whalefall.stack.dubbo.provider.infrastructure.repository.persistence.
  */
 @Mapper
 public interface DemoMapper {
-    @Select("select * from whalefall.demo where name=#{name}")
+    @Select("select * from demo where name=#{name}")
     DemoPO selectByName(@Param("name") String name);
 }

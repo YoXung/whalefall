@@ -20,10 +20,12 @@ import org.whalefall.stack.dubbo.provider.infrastructure.repository.persistence.
 public class DemoRepositoryImpl implements DemoRepository {
     @Autowired(required = false)
     private DemoMapper demoMapper;
+
     @Override
     public DemoDTO findByName(String name) {
-        DemoPO demoPO = demoMapper.selectByName(name);
-        ProviderExceptionEnum.DO_NOT_EXIT.assertIsNull(demoPO);
+        //DemoPO demoPO = demoMapper.selectByName(name);
+        DemoPO demoPO = null;
+        ProviderExceptionEnum.DO_NOT_EXIT.assertNotNull(demoPO);
         return DemoConvertor.toDemoDTO(demoPO);
     }
 }
