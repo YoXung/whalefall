@@ -17,6 +17,7 @@ whalefall //基线工程
 |   ├── whalefall-dubbo-consumer
 |   ├── whalefall-dubbo-api
 |   └── whalefall-dubbo-provider
+├── whalefall-gateway     //spring cloud gateway示例
 └──
 ```
 #### 安装的各软件对应的版本为（仅供参考）：

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.whalefall.stack</groupId>
+		<artifactId>whalefall</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>whalefall-mq-examples</artifactId>
+	<packaging>pom</packaging>
+	<name>whalefall-mq-examples</name>
+	<description>MQ demo</description>
+
+	<modules>
+		<module>whalefall-mq-kafka</module>
+		<module>whalefall-mq-zeromq</module>
+		<module>whalefall-mq-rabbitmq</module>
+		<module>whalefall-mq-activemq</module>
+		<module>whalefall-mq-rocketmq</module>
+		<module>whalefall-mq-emq</module>
+		<module>whalefall-mq-pulsar</module>
+	</modules>
+
+	<build>
+		<finalName>${project.name}</finalName>
+	</build>
+
+</project>
