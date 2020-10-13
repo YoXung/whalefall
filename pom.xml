@@ -28,6 +28,7 @@
         <module>whalefall-common</module>
         <module>whalefall-gateway</module>
         <module>whalefall-dubbo</module>
+        <module>whalefall-mq-examples</module>
     </modules>
 
     <dependencies>
