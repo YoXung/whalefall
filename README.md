@@ -2,6 +2,8 @@
 
 # whale-fall-stack
 [![java](https://img.shields.io/badge/Java-8-9cf)]()
+[![java](https://img.shields.io/badge/Apache%20Maven-3.6.3-blue)]()
+[![SC](https://img.shields.io/badge/Spring%20Boot-2.2.10.RELEASE-lightgreen)]()
 [![SC](https://img.shields.io/badge/Spring%20Cloud-Hoxton.SR8-green)]()
 [![SCA](https://img.shields.io/badge/Spring%20Cloud%20Alibaba-2.2.1.RELEASE-orange)](https://github.com/alibaba/spring-cloud-alibaba)
 #### DevOps

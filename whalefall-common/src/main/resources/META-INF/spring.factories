@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  org.whalefall.stack.common.cors.CorsConfig,\
+  org.whalefall.stack.common.swagger.Swagger3Config,\
+  org.whalefall.stack.common.kafka.KafkaConfig
