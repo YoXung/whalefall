@@ -12,5 +12,5 @@ import org.springframework.context.annotation.PropertySource;
  */
 @Configuration
 @PropertySource("classpath:rpc.properties")
-public class DubboConfiguration {
+public class DubboConfig {
 }

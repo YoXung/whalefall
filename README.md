@@ -2,8 +2,8 @@
 
 # whale-fall-stack
 [![java](https://img.shields.io/badge/Java-8-9cf)]()
-[![java](https://img.shields.io/badge/Apache%20Maven-3.6.3-blue)]()
-[![SC](https://img.shields.io/badge/Spring%20Boot-2.2.10.RELEASE-lightgreen)]()
+[![maven](https://img.shields.io/badge/Apache%20Maven-3.6.3-blue)]()
+[![SB](https://img.shields.io/badge/Spring%20Boot-2.2.10.RELEASE-lightgreen)]()
 [![SC](https://img.shields.io/badge/Spring%20Cloud-Hoxton.SR8-green)]()
 [![SCA](https://img.shields.io/badge/Spring%20Cloud%20Alibaba-2.2.1.RELEASE-orange)](https://github.com/alibaba/spring-cloud-alibaba)
 #### DevOps
@@ -13,6 +13,7 @@
 ```
 whalefall //基线工程
 ├── whalefall-framework   //框架组件
+├── whalefall-common      //通用组件
 ├── whalefall-dubbo       //dubbo示例
 |   ├── whalefall-dubbo-gateway     
 |   ├── whalefall-dubbo-consumer-api
@@ -20,6 +21,16 @@ whalefall //基线工程
 |   ├── whalefall-dubbo-api
 |   └── whalefall-dubbo-provider
 ├── whalefall-gateway     //spring cloud gateway示例
+├── whalefall-mq-examples //mq示例
+|   ├── whalefall-mq-kafka
+|   |   ├── whalefall-mq-kafka-consume
+|   |   ├── whalefall-mq-kafka-produce
+|   ├── whalefall-mq-pulsar
+|   ├── whalefall-mq-rabbitmq
+|   ├── whalefall-mq-rocketmq
+|   ├── whalefall-mq-zeromq
+|   ├── whalefall-mq-activemq
+|   ├── whalefall-mq-emq      
 └──
 ```
 #### 安装的各软件对应的版本为（仅供参考）：
