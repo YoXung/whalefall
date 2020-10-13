@@ -8,6 +8,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>whalefall-mq-kafka</artifactId>
+	<packaging>pom</packaging>
 	<name>whalefall-mq-kafka</name>
 	<description>kafka demo</description>
 
