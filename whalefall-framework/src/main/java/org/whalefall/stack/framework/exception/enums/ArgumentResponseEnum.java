@@ -7,7 +7,7 @@ import org.whalefall.stack.framework.exception.assertion.ArgumentExceptionAssert
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description 参数校验异常枚举
  * @create 2020/8/5 10:58 上午
  */

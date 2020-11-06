@@ -14,7 +14,7 @@ import java.lang.reflect.Method;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description dubbo异常透传
  * @create 2020/5/27 10:16 上午
  */

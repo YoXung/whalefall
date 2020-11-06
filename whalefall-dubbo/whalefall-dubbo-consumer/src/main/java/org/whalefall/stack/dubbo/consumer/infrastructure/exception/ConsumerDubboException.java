@@ -7,7 +7,7 @@ import org.whalefall.stack.framework.exception.assertion.BizExceptionAssert;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description 消费端异常
  * @create 2020/7/2 7:29 下午
  */

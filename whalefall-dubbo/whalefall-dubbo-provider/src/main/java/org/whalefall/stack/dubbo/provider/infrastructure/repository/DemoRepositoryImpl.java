@@ -12,7 +12,7 @@ import org.whalefall.stack.dubbo.provider.infrastructure.repository.persistence.
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description 仓储类实现
  * @create 2020/7/3 9:07 上午
  */

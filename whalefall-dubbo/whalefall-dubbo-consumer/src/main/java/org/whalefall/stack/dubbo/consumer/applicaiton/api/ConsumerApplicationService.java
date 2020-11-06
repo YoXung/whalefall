@@ -6,7 +6,7 @@ import org.whalefall.stack.dubbo.consumer.ui.viewobject.ConsumerVO;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description 应用服务
  * @create 2020/6/28 3:59 下午
  */

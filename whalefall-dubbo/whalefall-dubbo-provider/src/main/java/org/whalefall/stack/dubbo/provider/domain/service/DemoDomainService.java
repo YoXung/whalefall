@@ -10,7 +10,7 @@ import org.whalefall.stack.dubbo.provider.domain.demo.repository.DemoRepository;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description
  * @create 2020/6/29 4:50 下午
  */

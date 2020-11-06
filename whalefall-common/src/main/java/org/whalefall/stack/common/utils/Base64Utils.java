@@ -6,7 +6,7 @@ import java.util.Base64;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description Base64工具类
  * @create 2020/9/25 5:21 下午
  */

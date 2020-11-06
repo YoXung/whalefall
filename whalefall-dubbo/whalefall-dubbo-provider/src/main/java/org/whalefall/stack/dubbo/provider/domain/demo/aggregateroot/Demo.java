@@ -7,7 +7,7 @@ import org.whalefall.stack.framework.annotations.ddd.domain.AggregateRoot;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description 聚合根
  * @create 2020/7/2 8:46 下午
  */

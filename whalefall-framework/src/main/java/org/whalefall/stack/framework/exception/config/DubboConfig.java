@@ -6,7 +6,7 @@ import org.springframework.context.annotation.PropertySource;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description
  * @create 2020/5/28 3:22 下午
  */

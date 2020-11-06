@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description 聚合根
  * @create 2020/6/24 9:00 上午
  */

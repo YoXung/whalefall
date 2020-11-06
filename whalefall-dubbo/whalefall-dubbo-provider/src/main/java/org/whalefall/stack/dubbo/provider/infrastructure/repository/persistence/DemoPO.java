@@ -6,7 +6,7 @@ import lombok.Data;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description 持久化对象
  * @create 2020/7/3 9:06 上午
  */

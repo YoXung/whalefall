@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description Swagger配置文件
  * @create 2020/8/21 10:12 上午
  */

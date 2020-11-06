@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description Jackson工具封装
  * @create 2020/9/25 5:22 下午
  */

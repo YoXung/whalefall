@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description 视图对象
  * @create 2020/6/28 3:07 下午
  */

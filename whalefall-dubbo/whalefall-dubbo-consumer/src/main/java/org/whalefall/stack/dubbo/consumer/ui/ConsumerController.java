@@ -18,7 +18,7 @@ import javax.validation.constraints.NotBlank;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description
  * @create 2020/6/28 3:09 下午
  */
@@ -28,8 +28,11 @@ import javax.validation.constraints.NotBlank;
 @RequestMapping("/dubbo")
 @Validated
 public class ConsumerController implements ConsumerApi {
-    @Autowired
-    private ConsumerApplicationService consumerApplicationService;
+    private final ConsumerApplicationService consumerApplicationService;
+
+    public ConsumerController(ConsumerApplicationService consumerApplicationService) {
+        this.consumerApplicationService = consumerApplicationService;
+    }
 
     @Operation(summary = "创建方法")
     @PostMapping("/demos")

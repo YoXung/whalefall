@@ -10,7 +10,7 @@ import java.io.Serializable;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description View Object基类
  * @create 2020/5/27 8:47 上午
  */

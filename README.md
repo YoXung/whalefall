@@ -39,6 +39,6 @@ whalefall //基线工程
 |JDK | 1.8.0_202 | 其他版本未测试
 |Maven | 3.6.3  | 
 |MySQL | 8.0.21 | 
-|Nginx | 1.19.2 |
+|Nginx | 1.19.3 |
 |Nacos | 1.3.2  |
 |Docker| 19.03.9| 

@@ -33,7 +33,7 @@ import static org.springframework.web.util.UriComponentsBuilder.fromUriString;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description dubbo网关泛化调用
  * @create 2020/7/6 11:29 上午
  */

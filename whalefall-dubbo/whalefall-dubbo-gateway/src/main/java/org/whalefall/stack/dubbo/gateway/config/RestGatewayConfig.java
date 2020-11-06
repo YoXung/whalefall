@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description
  * @create 2020/7/16 7:56 下午
  */

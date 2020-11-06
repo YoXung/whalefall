@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description 服务器异常枚举
  * @create 2020/8/5 11:05 上午
  */

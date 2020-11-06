@@ -11,7 +11,7 @@ import java.util.Properties;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description kafka配置
  * @create 2020/10/13 11:39 上午
  */

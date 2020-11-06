@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description 异常断言基类
  * @create 2020/5/27 10:18 上午
  */

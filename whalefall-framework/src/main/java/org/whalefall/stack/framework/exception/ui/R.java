@@ -9,7 +9,7 @@ import org.whalefall.stack.framework.exception.enums.CommonResponseEnum;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description 成功返回
  * @create 2020/5/27 8:48 上午
  */

@@ -9,7 +9,7 @@ import org.whalefall.stack.framework.exception.ui.BaseResponseVO;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description 通用异常枚举
  * @create 2020/8/5 10:57 上午
  */

@@ -9,7 +9,7 @@ import java.text.MessageFormat;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description 业务异常断言
  * @create 2020/5/27 11:12 上午
  */

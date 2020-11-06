@@ -5,7 +5,7 @@ import org.whalefall.stack.dubbo.api.provider.command.cmd.DemoCmd;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description
  * @create 2020/6/29 4:49 下午
  */

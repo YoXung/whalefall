@@ -7,7 +7,7 @@ import org.whalefall.stack.framework.exception.assertion.BizExceptionAssert;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description dubbo provider异常信息
  * @create 2020/7/3 9:19 上午
  */

@@ -26,7 +26,7 @@ import java.util.Enumeration;
 /**
  * Copyright © 2020 Whale Fall All Rights Reserved
  *
- * @author YaoXiang
+ * @author YoXung
  * @description rest路由
  * @create 2020/7/13 9:48 上午
  */
